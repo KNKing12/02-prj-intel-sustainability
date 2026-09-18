@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title description">
+  <title id="title">Brain-shaped microchip</title>
+  <description id="description">A stylized human brain made from glowing circuit traces around a computer chip.</description>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173f48"/>
+      <stop offset="1" stop-color="#8eaf9d"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff1d1"/>
+      <stop offset="1" stop-color="#80b9aa"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#background)"/>
+  <g opacity=".2" stroke="#d9ecd5" stroke-width="2">
+    <path d="M0 70h800M0 140h800M0 210h800M0 280h800M0 350h800M0 420h800"/>
+    <path d="M70 0v480M160 0v480M250 0v480M340 0v480M430 0v480M520 0v480M610 0v480M700 0v480"/>
+  </g>
+
+  <g fill="none" stroke="#e7d98d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M400 88c-38-47-107-43-139-7-42-20-93 9-92 59-39 20-48 77-12 106-24 44 10 96 59 95 16 48 80 60 111 24 29 31 72 31 102 2 34 34 96 20 109-27 49 0 80-54 53-96 35-36 24-89-15-106 0-50-48-78-91-57-34-36-82-33-85 7z"/>
+    <path d="M399 91v296M335 104c32 27 33 56 6 82s-21 56 10 78c30 21 28 53-4 91M465 104c-32 27-33 56-6 82s21 56-10 78c-30 21-28 53 4 91M283 151c26 8 37 28 23 47s-8 38 13 48M517 151c-26 8-37 28-23 47s8 38-13 48"/>
+  </g>
+
+  <g stroke="#21373d" stroke-width="8" fill="url(#chip)">
+    <rect x="296" y="171" width="208" height="138" rx="10" transform="rotate(-5 400 240)"/>
+  </g>
+  <g stroke="#e7d98d" stroke-width="5">
+    <path d="M296 190h-49M296 220h-67M296 250h-52M296 280h-73M504 190h49M504 220h67M504 250h52M504 280h73"/>
+    <path d="M320 171v-42M350 168v-57M380 166v-40M410 164v-58M440 162v-43M470 160v-61M320 309v42M350 312v57M380 314v40M410 316v58M440 318v43M470 320v61"/>
+  </g>
+  <g fill="#193b42" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="230" font-size="29" font-weight="bold">INTEL</text>
+    <text x="400" y="264" font-size="19">THINKING FORWARD</text>
+  </g>
+  <g fill="#f1df87">
+    <circle cx="271" cy="190" r="7"/><circle cx="229" cy="220" r="7"/><circle cx="244" cy="250" r="7"/><circle cx="218" cy="280" r="7"/>
+    <circle cx="529" cy="190" r="7"/><circle cx="571" cy="220" r="7"/><circle cx="556" cy="250" r="7"/><circle cx="582" cy="280" r="7"/>
+  </g>
+</svg>

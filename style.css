@@ -7,6 +7,8 @@
 	--shadow-yellow: #f4df72;
 	--shadow-pink: #f3b4cc;
 	--shadow-green: #b8dc9d;
+	--shadow-orange: #f6c27a;
+	--shadow-blue: #a9d8f5;
 	--white: #fffdfd;
 }
 
@@ -232,7 +234,7 @@ h1 {
 	justify-content: center;
 	flex-direction: column;
 	padding: 21px;
-	border: 2px solid var(--ink);
+	border: 0;
 	border-radius: 7px;
 	box-shadow: 7px 7px 0 var(--shadow-yellow);
 	cursor: pointer;
@@ -297,36 +299,102 @@ h1 {
 }
 
 .timeline-group:nth-child(2) .timeline-card:nth-child(1) .card-face {
-	box-shadow: 7px 7px 0 var(--shadow-pink);
+	box-shadow: 7px 7px 0 var(--shadow-orange);
 }
 
 .timeline-group:nth-child(2) .timeline-card:nth-child(1) .card-face:hover,
 .timeline-group:nth-child(2) .timeline-card:nth-child(1) .card-face:focus {
-	box-shadow: 10px 12px 0 var(--shadow-pink);
+	box-shadow: 10px 12px 0 var(--shadow-orange);
 }
 
 .timeline-group:nth-child(2) .timeline-card:nth-child(n + 2) .card-face {
-	box-shadow: 7px 7px 0 var(--shadow-green);
+	box-shadow: 7px 7px 0 var(--shadow-blue);
 }
 
 .timeline-group:nth-child(2) .timeline-card:nth-child(n + 2) .card-face:hover,
 .timeline-group:nth-child(2) .timeline-card:nth-child(n + 2) .card-face:focus {
+	box-shadow: 10px 12px 0 var(--shadow-blue);
+}
+
+.timeline-group:first-child .timeline-card:nth-child(4) .card-face {
+	box-shadow: 7px 7px 0 var(--shadow-green);
+}
+
+.timeline-group:first-child .timeline-card:nth-child(4) .card-face:hover,
+.timeline-group:first-child .timeline-card:nth-child(4) .card-face:focus {
 	box-shadow: 10px 12px 0 var(--shadow-green);
 }
 
 .timeline-group:nth-child(2) .timeline-card,
 .timeline-group:nth-child(2) .card-inner {
-	min-height: 440px;
+	min-height: 0;
+	aspect-ratio: 1 / 1;
+}
+
+.timeline-group:nth-child(2) .timeline-card {
+	flex: 1 1 0;
+	transform: scale(0.94);
+}
+
+.timeline-group:nth-child(2) .card-back {
+	padding: 18px;
+}
+
+.timeline-group:nth-child(2) .card-back h2 {
+	font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+}
+
+.timeline-group:nth-child(2) .card-back h3 {
+	font-size: clamp(1.15rem, 0.95rem + 0.7vw, 1.5rem);
+}
+
+.timeline-group:nth-child(2) .card-back p {
+	font-size: clamp(0.78rem, 0.68rem + 0.25vw, 0.95rem);
+	line-height: 1.2;
 }
 
 .timeline-group:nth-child(2) {
-	margin-right: -18px;
-	margin-left: -18px;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin-right: 14px;
+	margin-left: 14px;
 }
 
 .timeline-group:first-child {
-	margin-right: 28px;
-	margin-left: 28px;
+	margin-right: 14px;
+	margin-left: 14px;
+}
+
+.timeline-group:first-child .timeline-card {
+	transform: scale(0.94);
+}
+
+.timeline-group:first-child .timeline-card,
+.timeline-group:first-child .card-inner {
+	min-height: 0;
+	aspect-ratio: 1 / 1;
+}
+
+.timeline-group:first-child .card-back {
+	padding: 14px;
+}
+
+
+.timeline-group .timeline-card:hover,
+.timeline-group .timeline-card:focus-within {
+	transform: scale(1);
+}
+.timeline-group:first-child .card-back h2 {
+	font-size: clamp(1.35rem, 1.1rem + 1vw, 1.8rem);
+}
+
+.timeline-group:first-child .card-back h3 {
+	font-size: clamp(1rem, 0.85rem + 0.7vw, 1.3rem);
+}
+
+.timeline-group:first-child .card-back p {
+	font-size: clamp(0.7rem, 0.6rem + 0.22vw, 0.84rem);
+	line-height: 1.15;
 }
 
 .card-face h2 {
@@ -341,17 +409,23 @@ h1 {
 	line-height: 1.1;
 }
 
+.card-front h2,
+.card-front h3 {
+	display: none;
+}
+
 .timeline-image {
 	display: block;
 	width: 100%;
-	height: auto;
-	margin: 0 0 18px;
+	height: 100%;
+	margin: 0;
 	padding: 0;
 	border: 0;
 	background: transparent;
 	box-shadow: none;
 	filter: url("img/sketch-filter.svg#rough") contrast(1.2) brightness(0.95);
 	transform: rotate(-1deg);
+	object-fit: contain;
 }
 
 .card-back p {
@@ -447,9 +521,26 @@ footer {
 	}
 	.timeline-card,
 	.card-inner { min-height: clamp(320px, 105vw, 360px); }
+	.timeline-group:nth-child(2) .timeline-card,
+	.timeline-group:nth-child(2) .card-inner {
+		min-height: clamp(320px, 105vw, 360px);
+		aspect-ratio: auto;
+	}
+	.timeline-group:nth-child(2) .timeline-card {
+		flex-basis: auto;
+		transform: scale(0.82);
+	}
 	.timeline-card {
 		width: 100%;
 		flex-basis: auto;
+	}
+	.timeline-group:first-child .timeline-card {
+		transform: scale(0.82);
+	}
+	.timeline-group:first-child .timeline-card,
+	.timeline-group:first-child .card-inner {
+		min-height: clamp(320px, 105vw, 360px);
+		aspect-ratio: auto;
 	}
 	.card-face { padding: 22px; }
 }

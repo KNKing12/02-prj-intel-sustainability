@@ -18,9 +18,7 @@ body {
 	margin: 0;
 	color: var(--ink);
 	background-color: #00C7FD;
-	background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/1.jpg"), url("img/2.jpg"), url("img/3.jpg"), url("img/4.jpg");
-	background-position: center, top left, top right, bottom left, bottom right;
-	background-size: cover, 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+	background: #00C7FD;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	font-family: "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive;
@@ -28,13 +26,50 @@ body {
 	line-height: 1.5;
 	overflow-x: hidden;
 	text-align: center;
-	animation: page-collage-shuffle 15s ease-in-out infinite;
+}
+
+.collage {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	overflow: hidden;
+	background: url("img/unsplash 1.jpg") center / cover no-repeat;
+	pointer-events: none;
+}
+
+.collage-image {
+	position: absolute;
+	display: block;
+	width: 42vw;
+	max-width: 560px;
+	border: 5px solid var(--white);
+	box-shadow: 8px 10px 0 rgba(17, 17, 17, 0.45);
+	opacity: 0.8;
+	filter: saturate(0.85) brightness(0.8);
+	animation: collage-spotlight 20s steps(8, end) infinite;
+}
+
+.collage-image-1 { top: 5%; left: 3%; transform: rotate(-8deg); animation-delay: 0s; }
+.collage-image-2 { top: 4%; left: 32%; transform: rotate(5deg); animation-delay: -3.75s; }
+.collage-image-3 { top: 8%; right: 3%; transform: rotate(-4deg); animation-delay: -7.5s; }
+.collage-image-4 { top: 38%; right: 1%; transform: rotate(8deg); animation-delay: -11.25s; }
+.collage-image-5 { bottom: 4%; right: 8%; transform: rotate(-7deg); animation-delay: -15s; }
+.collage-image-6 { bottom: 1%; left: 31%; transform: rotate(4deg); animation-delay: -18.75s; }
+.collage-image-7 { bottom: 8%; left: 2%; transform: rotate(-5deg); animation-delay: -22.5s; }
+.collage-image-8 { top: 38%; left: 30%; transform: rotate(7deg); animation-delay: -26.25s; }
+
+.hero,
+.timeline-wrap {
+	position: relative;
+	z-index: 1;
 }
 
 .hero {
-	min-height: 88vh;
+	min-height: 85vh;
 	padding: 24px 7% 80px;
 	background: #00C7FD;
+	text-align: center;
+	overflow: hidden;
 }
 
 .hero-nav {
@@ -348,21 +383,33 @@ footer {
 	50% { background-position: 0% 50%; }
 }
 
-@keyframes page-collage-shuffle {
-	0%, 20% {
-		background-position: center, top left, top right, bottom left, bottom right;
+@keyframes page-collage-focus {
+	0%, 12% {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/1.jpg"), url("img/2.jpg"), url("img/3.jpg"), url("img/4.jpg"), url("img/chip in hand.jpg"), url("img/intel egg.jpg"), url("img/intel tile.jpg"), url("img/unsplash 1.jpg");
 	}
-	25%, 45% {
-		background-position: center, top right, bottom right, bottom left, top left;
+	13%, 24% {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/2.jpg"), url("img/3.jpg"), url("img/4.jpg"), url("img/chip in hand.jpg"), url("img/intel egg.jpg"), url("img/intel tile.jpg"), url("img/unsplash 1.jpg"), url("img/1.jpg");
 	}
-	50%, 70% {
-		background-position: center, bottom right, bottom left, top left, top right;
+	25%, 37% {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/3.jpg"), url("img/4.jpg"), url("img/chip in hand.jpg"), url("img/intel egg.jpg"), url("img/intel tile.jpg"), url("img/unsplash 1.jpg"), url("img/1.jpg"), url("img/2.jpg");
 	}
-	75%, 95% {
-		background-position: center, bottom left, top left, top right, bottom right;
+	38%, 49% {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/4.jpg"), url("img/chip in hand.jpg"), url("img/intel egg.jpg"), url("img/intel tile.jpg"), url("img/unsplash 1.jpg"), url("img/1.jpg"), url("img/2.jpg"), url("img/3.jpg");
+	}
+	50%, 62% {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/chip in hand.jpg"), url("img/intel egg.jpg"), url("img/intel tile.jpg"), url("img/unsplash 1.jpg"), url("img/1.jpg"), url("img/2.jpg"), url("img/3.jpg"), url("img/4.jpg");
+	}
+	63%, 74% {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/intel egg.jpg"), url("img/intel tile.jpg"), url("img/unsplash 1.jpg"), url("img/1.jpg"), url("img/2.jpg"), url("img/3.jpg"), url("img/4.jpg"), url("img/chip in hand.jpg");
+	}
+	75%, 87% {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/intel tile.jpg"), url("img/unsplash 1.jpg"), url("img/1.jpg"), url("img/2.jpg"), url("img/3.jpg"), url("img/4.jpg"), url("img/chip in hand.jpg"), url("img/intel egg.jpg");
+	}
+	88%, 99% {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/unsplash 1.jpg"), url("img/1.jpg"), url("img/2.jpg"), url("img/3.jpg"), url("img/4.jpg"), url("img/chip in hand.jpg"), url("img/intel egg.jpg"), url("img/intel tile.jpg");
 	}
 	100% {
-		background-position: center, top left, top right, bottom left, bottom right;
+		background-image: linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)), url("img/1.jpg"), url("img/2.jpg"), url("img/3.jpg"), url("img/4.jpg"), url("img/chip in hand.jpg"), url("img/intel egg.jpg"), url("img/intel tile.jpg"), url("img/unsplash 1.jpg");
 	}
 }
 
